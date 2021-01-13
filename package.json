@@ -1,6 +1,6 @@
 {
   "name": "typeorm-mongo-health",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "typeorm mongo health",
   "author": "Amir Kenarang <amir.kenarang@gmail.com>",
   "license": "MIT",
