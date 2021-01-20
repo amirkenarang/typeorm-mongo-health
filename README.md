@@ -14,14 +14,43 @@
   </a>
 </div>
 
+A helath checker for mongodb in typeorm
+
+## Table of contents
+
+- [Installation](#Instalation)
+- [Usage](#Usage)
+- [Change Log](#ChangeLog)
+- [Contributing](#Contributing)
+
 ### Installation
 
-1. Clone the repo
-2. Run npm/yarn install
-
 ```bash
-cd typeorm-mongo-health
-npm install
+npm install --save typeorm-mongo-health
+```
+
+## Usage
+
+The simplest way to check `mongo health` in typeorm is using `typeorm-mongo-health`:
+
+```ts
+import { Injectable } from '@nestjs/common';
+import { getConnection } from 'typeorm';
+import { MongoHealh } from 'typeorm-mongo-health';
+
+@Injectable()
+export class HealthService {
+  constructor(private mongoHelath: MongoHealh) {}
+
+  async healthCheck(): Promise<any> {
+    const mongoHealth = await this.mongoHelath.mongoHealth(
+      getConnection(), // typeorm connection
+      'mongodb-name', // mongo name
+      10000, // timeout millisecond
+    );
+    return mongoHealth;
+  }
+}
 ```
 
 ## Change Log
