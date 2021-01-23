@@ -7,8 +7,8 @@ import { ServiceHealthDto } from './dto/serviceHealth.dto';
  * @author Amir Kenarang <amir.kenarang@gmail.com>
  * @version 1.0.0
  * @param connection {any} - typeOrm connection
- * @param name - {string} - service name
- * @param time - {number} - millisecond for timestamp
+ * @param name - {string} - Service Name
+ * @param time - {number} - Millisecond for timestamp of check connection
  * @returns {Object} - Health status object
  */
 @Injectable()
