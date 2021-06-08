@@ -14,7 +14,7 @@
   </a>
 </div>
 
-A helath checker for mongodb in typeorm
+A health checker for mongodb in typeorm
 
 ## Table of contents
 
