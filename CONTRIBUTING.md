@@ -22,3 +22,7 @@ and
 ```
 npm run lint
 ```
+
+## Publish package
+
+Run `npm publish`
