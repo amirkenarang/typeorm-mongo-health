@@ -26,7 +26,7 @@ A health checker for mongodb in typeorm
 ### Installation
 
 ```bash
-npm install --save typeorm-mongo-health
+npm install --save typeorm-mongo-health@1.0.5
 ```
 
 ## Usage
@@ -40,11 +40,18 @@ import { MongoHealh } from 'typeorm-mongo-health';
 
 @Injectable()
 export class HealthService {
-  constructor(private mongoHelath: MongoHealh) {}
+  constructor(
+    @Inject('DATA_SOURCE') private dataSource: DataSource,
+    private mongoHelath: MongoHealh,
+  ) {}
 
   async healthCheck(): Promise<any> {
+    // Get the MongoManager from the DataSource
+    const mongoManager = this.dataSource.manager;
+    const connection = mongoManager.connection;
+
     const mongoHealth = await this.mongoHelath.mongoHealth(
-      getConnection(), // typeorm connection
+      connection, // typeorm connection
       'mongodb-name', // mongo name
       10000, // timeout millisecond
     );
