@@ -35,7 +35,7 @@ export class MongoHealh {
    * @param connection {any} - Type orm Connection
    * @param name {string} - Name of Mongo Service
    * @param timeout {number} time of check database connection timeout
-   * @returns {object} Status of mongo connection base on HelatDto
+   * @returns {object} Status of mongo connection base on HealtDto
    */
   private async checkMongoDBConnection(
     connection: any,
@@ -57,7 +57,7 @@ export class MongoHealh {
    * @returns {boolean} It return boolean status of database. It check timeout
    */
   private async pingMongo(connection: any, timeout: number): Promise<boolean> {
-    return new Promise(async resolve => {
+    return new Promise(async (resolve) => {
       const ClientDb = (connection.driver as any).queryRunner
         .databaseConnection;
 
